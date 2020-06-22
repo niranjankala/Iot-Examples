@@ -1,0 +1,27 @@
+az iot hub show --query properties.eventHubEndpoints.events.endpoint --name CheeseCaveHub-niranjan
+
+az iot hub show --query properties.eventHubEndpoints.events.path --name CheeseCaveHub-niranjan
+
+az iot hub policy show --name service --query primaryKey --hub-name CheeseCaveHub-niranjan
+
+
+
+Record the event hub endpoint, path, and key
+For C# versions of the code, you also need the Event Hubs-compatible endpoint, Event Hubs-compatible path, and service primary key from your IoT hub. These strings enable the back-end app to connect to your IoT Hub, and retrieve messages.
+
+Copy the following three commands to your text file, and replace <YourIoTHubName> with the name of your hub.
+
+Azure
+
+Copy
+az iot hub show --query properties.eventHubEndpoints.events.endpoint --name <YourIoTHubName>
+
+az iot hub show --query properties.eventHubEndpoints.events.path --name <YourIoTHubName>
+
+az iot hub policy show --name service --query primaryKey --hub-name <YourIoTHubName>
+
+Copy all the commands from the text file to the Azure Cloud Shell pane.
+
+Copy the strings that are returned back to your text file.
+
+The endpoint string will be something like "sb://iothub-ns-cheesexxxx-xxxxxxx-xxxxxxxxxx.servicebus.windows.net/". The path will be a lower-case version of your hub name. The service key will be a coded string, similar to any primary key in the Azure portal. These strings replace the <your event hub endpoint>, <your event hub path>, and <your event hub Sas key> strings, respectively, in an upcoming unit.
